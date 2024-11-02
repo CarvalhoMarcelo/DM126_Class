@@ -2,7 +2,7 @@
 //  ResultViewController.swift
 //  DM126_Class
 //
-//  Created by mcarvalhosilva on 11/2/24.
+//  Created by 264013 on 11/2/24.
 //
 
 import UIKit
