@@ -8,9 +8,23 @@
 import UIKit
 
 class QuestionViewController: UIViewController {
-
+    var currentQuestion = 0
+    var points = 0
     
     @IBAction func clickAnswer(_ sender: UIButton) {
+        if sender.tag == 0 {
+            points -= 1
+        } else if ( sender.tag == 2) {
+            points += 1
+        }
+        
+        if(currentQuestion < questions.count - 1) {
+            currentQuestion += 1
+            configQuestions()
+        } else {
+            goToScreenResult()
+        }
+        
         print(sender.tag)
     }
     
@@ -20,15 +34,41 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configLayout()
+        configQuestions()
 
         // Do any additional setup after loading the view.
     }
     
     func configLayout() {
-        for botao in clickAnswers {
-            botao.tintColor = .red
+        textAnswer.numberOfLines = 0
+        for button in clickAnswers {
+            button.tintColor = .red
         }
     }
+    
+    func configQuestions() {
+        textAnswer.text = questions[currentQuestion].tittle
+        for button in clickAnswers {
+            let buttonTittle = questions[currentQuestion].answers[button.tag]
+            button.setTitle(buttonTittle, for: .normal)
+            
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let resultVC = segue.destination as?
+                ResultViewController
+        else {
+            return
+        }
+        resultVC.pontuation = points
+    }
+    
+    func goToScreenResult() {
+        performSegue(withIdentifier: "goToResultScreen", sender: nil)
+    }
+        
+    
 
     /*
     // MARK: - Navigation

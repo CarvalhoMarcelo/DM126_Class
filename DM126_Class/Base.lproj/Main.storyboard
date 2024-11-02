@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Ku-Jh-Isb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Ku-Jh-Isb">
     <device id="retina6_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,7 +20,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaZ-A5-FTR">
                                 <rect key="frame" x="40" y="708" width="360" height="51"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Iniciar Teste">
+                                <buttonConfiguration key="configuration" style="plain" title="Start Test">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" systemColor="labelColor"/>
                                     </backgroundConfiguration>
@@ -62,7 +63,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Texto question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6X-Ia-Cxh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6X-Ia-Cxh">
                                 <rect key="frame" x="40" y="320.66666666666669" width="351" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
@@ -79,7 +80,6 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
-                                    <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="clickAnswer:" destination="QAx-fe-jUo" eventType="touchUpInside" id="xut-Fc-07m"/>
@@ -138,7 +138,6 @@
                             <constraint firstItem="r4f-VL-g11" firstAttribute="top" secondItem="kd7-cl-qry" secondAttribute="bottom" constant="30" id="ibQ-tV-D9f"/>
                             <constraint firstItem="Opi-Gd-oVj" firstAttribute="trailing" secondItem="6dB-3L-2Pe" secondAttribute="trailing" constant="40" id="ipv-ih-Gsn"/>
                             <constraint firstItem="Z6X-Ia-Cxh" firstAttribute="leading" secondItem="Opi-Gd-oVj" secondAttribute="leading" constant="40" id="rvk-qZ-8L7"/>
-                            <constraint firstItem="kd7-cl-qry" firstAttribute="centerX" secondItem="Tgq-m1-zkn" secondAttribute="centerX" id="vKH-CM-iha"/>
                             <constraint firstItem="Opi-Gd-oVj" firstAttribute="trailing" secondItem="r4f-VL-g11" secondAttribute="trailing" constant="40" id="vug-4I-BJL"/>
                         </constraints>
                     </view>
@@ -148,6 +147,7 @@
                         <outletCollection property="clickAnswers" destination="6dB-3L-2Pe" collectionClass="NSMutableArray" id="PGJ-aA-z3a"/>
                         <outletCollection property="clickAnswers" destination="kd7-cl-qry" collectionClass="NSMutableArray" id="uxg-HV-ffW"/>
                         <outletCollection property="clickAnswers" destination="r4f-VL-g11" collectionClass="NSMutableArray" id="AkR-RC-Pm9"/>
+                        <segue destination="mwr-Au-9HA" kind="show" identifier="goToResultScreen" id="np9-M5-PPj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fC-Cq-5LI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -172,9 +172,40 @@
             </objects>
             <point key="canvasLocation" x="45" y="-3.7656903765690379"/>
         </scene>
+        <!--Result View Controller-->
+        <scene sceneID="cyr-qv-bEw">
+            <objects>
+                <viewController id="mwr-Au-9HA" customClass="ResultViewController" customModule="DM126_Class" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KjN-wx-eIL">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pontuation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JN0-Mi-8Av">
+                                <rect key="frame" x="88" y="460" width="265" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9ss-lc-IXF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zTT-dU-Z3Q"/>
+                    <connections>
+                        <outlet property="pontuatinOutlet" destination="JN0-Mi-8Av" id="dzX-nx-kQO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="STK-KA-8KX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2256.818181818182" y="-4.3933054393305442"/>
+        </scene>
     </scenes>
     <resources>
         <image name="img-arcos" width="360" height="360"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
